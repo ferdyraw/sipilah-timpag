@@ -101,7 +101,7 @@ st.markdown(
 st.markdown(
     """
     <div class="sub_title">
-        Om Swastiastu!
+        Om Swastiastu!</br>
         <span style="opacity:0.9;">Adik-adik Desa Timpag, ayo cek sampahmu!</span>
     </div>
     """,
@@ -168,10 +168,10 @@ if img_file:
         st.balloons()
         st.markdown(f"""
         <div class="result_box" style="background-color: #d4edda; color: #155724; border: 2px solid #c3e6cb;">
-            <h1>🌿 ORGANIK</h1>
+            <h1>ORGANIK</h1>
             <p>Ini adalah <b>{label}</b> (Sisa Makanan/Daun).</p>
             <hr>
-            👉 <b>Buang ke Tong Warna HIJAU (Teba/Kompos)</b><br>
+            👉 <b>Buang ke Tong Organik</b><br>
             <i>"Sampah ini bisa jadi pupuk buat tanaman lho!"</i>
         </div>
         """, unsafe_allow_html=True)
@@ -180,7 +180,7 @@ if img_file:
     elif label == 'Battery':
         st.markdown("""
         <div class="result_box" style="background-color: #f8d7da; color: #721c24; border: 2px solid #f5c6cb;">
-            <h1>⚠️ BERBAHAYA (B3)</h1>
+            <h1>BERBAHAYA (B3)</h1>
             <p>Ini adalah <b>Baterai Bekas</b>.</p>
             <hr>
             👉 <b>JANGAN buang sembarangan!</b><br>
@@ -192,10 +192,10 @@ if img_file:
     elif label in ['Cardboard', 'Paper']:
         st.markdown(f"""
         <div class="result_box" style="background-color: #fff3cd; color: #856404; border: 2px solid #ffeeba;">
-            <h1>♻️ KERTAS/KARDUS</h1>
+            <h1>KERTAS/KARDUS</h1>
             <p>Ini adalah <b>{label}</b>.</p>
             <hr>
-            👉 <b>Buang ke Tong Warna BIRU/KUNING</b><br>
+            👉 <b>Buang ke Tong Anorganik</b><br>
             <i>"Kalau bersih dan kering, ini bisa dijual atau didaur ulang!"</i>
         </div>
         """, unsafe_allow_html=True)
@@ -211,10 +211,10 @@ if img_file:
         
         st.markdown(f"""
         <div class="result_box" style="background-color: #fff3cd; color: #856404; border: 2px solid #ffeeba;">
-            <h1>♻️ ANORGANIK</h1>
+            <h1>ANORGANIK</h1>
             <p>Terdeteksi sebagai: <b>{display_name}</b></p>
             <hr>
-            👉 <b>Buang ke Tong Warna KUNING</b><br>
+            👉 <b>Buang ke Tong Anorganik</b><br>
             <i>"Jangan dibakar ya, nanti udaranya jadi kotor."</i>
         </div>
         """, unsafe_allow_html=True)
