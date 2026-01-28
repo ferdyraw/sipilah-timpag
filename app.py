@@ -80,9 +80,34 @@ st.markdown(f"""
     """, unsafe_allow_html=True)
 
 # Judul Utama
-st.markdown('<div class="main_title">🌴 SiPilah Timpag 🕵️‍♂️</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub_title">Si Pintar Memilah dari Desa Timpag</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub_title">Om Swastiastu! Adik-adik Desa Timpag, ayo cek sampahmu!</div>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div class="main_title">
+        🌴 <span style="font-weight:700;">SiPilah Timpag</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="sub_title">
+        <span style="font-weight:600;">Si Pintar Memilah</span><br/>
+        dari Desa Timpag
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="sub_title">
+        Om Swastiastu!<br/>
+        <span style="opacity:0.9;">Adik-adik Desa Timpag, ayo cek sampahmu!</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ==========================================
 # 2. LOAD MODEL (HANYA SEKALI SAAT START)
