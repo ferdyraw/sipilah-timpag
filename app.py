@@ -130,7 +130,22 @@ with st.spinner('Sedang menyiapkan Robot Pintar... 🤖'):
 class_names = [
     'Battery', 'Biological', 'Cardboard', 'Clothes', 'Glass',
     'Metal', 'Paper', 'Plastic', 'Shoes', 'Trash'
-]
+]# ==========================================
+# 4. PANDUAN PENGGUNAAN (TIPS FOTO)
+# ==========================================
+# Menggunakan 'st.expander' agar tidak memenuhi layar, tapi mudah diakses.
+with st.expander("📜 Panduan & Tips Pengambilan Gambar yang Tepat"):
+    st.markdown("""
+    Agar Robot AI dapat mengenali sampah dengan akurat, ikuti tips berikut:
+
+    1.  **Cahaya Cukup:** ☀️ Pastikan area tidak terlalu gelap. Cahaya matahari alami paling baik.
+    2.  **Satu Objek:** 🍎 Usahakan hanya ada **satu jenis sampah** di dalam foto. Jangan ditumpuk.
+    3.  **Fokus & Jelas:** 📷 Pegang HP dengan stabil agar foto tidak buram (blur).
+    4.  **Latar Belakang Polos:** ⬜ Jika memungkinkan, taruh sampah di lantai atau tembok yang warnanya tidak ramai.
+    5.  **Jarak Pas:** Jangan terlalu jauh, jangan terlalu dekat sampai terpotong.
+
+    *Selamat mencoba!*
+    """)
 
 # ==========================================
 # 3. KAMERA & LOGIKA UTAMA
