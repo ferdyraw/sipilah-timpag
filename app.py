@@ -8,7 +8,7 @@ import numpy as np
 # ==========================================
 st.set_page_config(
     page_title="SiPilah Timpag",
-    page_icon="assets/tapaktimpag",
+    page_icon="assets/tapaktimpag.jpg",
     layout="centered"
 )
 
