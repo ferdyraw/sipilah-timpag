@@ -83,7 +83,7 @@ st.markdown(f"""
 st.markdown(
     """
     <div class="main_title">
-        🌴 <span style="font-weight:700;">SiPilah Timpag</span>
+        <span style="font-weight:700;">SiPilah Timpag</span>
     </div>
     """,
     unsafe_allow_html=True,
@@ -92,8 +92,7 @@ st.markdown(
 st.markdown(
     """
     <div class="sub_title">
-        <span style="font-weight:600;">Si Pintar Memilah</span><br/>
-        dari Desa Timpag
+        <span style="font-weight:600;">Si Pintar Memilah dari Desa Timpag</span><br/>
     </div>
     """,
     unsafe_allow_html=True,
@@ -102,7 +101,7 @@ st.markdown(
 st.markdown(
     """
     <div class="sub_title">
-        Om Swastiastu!<br/>
+        Om Swastiastu!
         <span style="opacity:0.9;">Adik-adik Desa Timpag, ayo cek sampahmu!</span>
     </div>
     """,
