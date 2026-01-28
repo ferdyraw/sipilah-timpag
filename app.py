@@ -106,7 +106,7 @@ st.markdown('<div class="sub_header">Sistem Cerdas Pemilahan Sampah Desa Timpag<
 @st.cache_resource
 def load_model():
     # Ganti nama file jika berbeda
-    model = tf.keras.models.load_model('model_desechos.h5')
+    model = tf.keras.models.load_model('modelo_desechos.h5')
     return model
 
 try:
