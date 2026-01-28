@@ -1,0 +1,14 @@
+[theme]
+# Main palette (navy)
+primaryColor = "#071D3E"
+
+# Backgrounds
+backgroundColor = "#F6F8FC"
+secondaryBackgroundColor = "#FFFFFF"
+
+# Text
+textColor = "#071D3E"
+
+# Font option (Streamlit supports: "sans serif" | "serif" | "monospace")
+font = "sans serif"
+

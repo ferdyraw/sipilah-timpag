@@ -12,39 +12,77 @@ st.set_page_config(
     layout="centered"
 )
 
-# CSS biar tombol dan judulnya menarik buat anak-anak
-st.markdown("""
+NAVY = "#071D3E"
+
+# CSS font + palette (navy) biar lebih modern
+st.markdown(f"""
     <style>
-    .main_title {
-        font-size: 2.5rem;
-        color: #2E8B57;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    html, body, [class*="css"] {{
+        font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }}
+
+    .main_title {{
+        font-size: 2.6rem;
+        color: {NAVY};
         text-align: center;
-        font-weight: bold;
-        font-family: 'Comic Sans MS', sans-serif;
-    }
-    .sub_title {
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        line-height: 1.15;
+        margin-top: 0.25rem;
+    }}
+    .sub_title {{
         text-align: center;
-        color: #555;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-    .result_box {
+        color: rgba(7, 29, 62, 0.78);
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }}
+    .result_box {{
         padding: 20px;
-        border-radius: 15px;
+        border-radius: 16px;
         text-align: center;
         margin-top: 20px;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
+        font-size: 1.05rem;
+        box-shadow: 0 10px 24px rgba(7, 29, 62, 0.12);
+        border: 1px solid rgba(7, 29, 62, 0.10);
+        background: rgba(255,255,255,0.90);
+        backdrop-filter: blur(6px);
+    }}
+
+    /* Button style (lebih "navy") */
+    .stButton > button {{
+        background: {NAVY};
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 0.65rem 1rem;
+        font-weight: 600;
+    }}
+    .stButton > button:hover {{
+        background: #0B2A5C;
+        border-color: rgba(255,255,255,0.18);
+    }}
+    .stButton > button:focus {{
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(7, 29, 62, 0.25);
+    }}
+
+    /* Progress bar */
+    [data-testid="stProgressBar"] > div > div {{
+        background-color: {NAVY};
+    }}
+
     /* Sembunyikan menu developer Streamlit biar bersih */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
     </style>
     """, unsafe_allow_html=True)
 
 # Judul Utama
 st.markdown('<div class="main_title">🌴 SiPilah Timpag 🕵️‍♂️</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub_title">Rahajeng Semeng! Adik-adik Desa Timpag, ayo cek sampahmu!</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub_title">Si Pintar Memilah dari Desa Timpag</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub_title">Om Swastiastu! Adik-adik Desa Timpag, ayo cek sampahmu!</div>', unsafe_allow_html=True)
 
 # ==========================================
 # 2. LOAD MODEL (HANYA SEKALI SAAT START)
@@ -59,8 +97,9 @@ def load_model():
 with st.spinner('Sedang menyiapkan Robot Pintar... 🤖'):
     try:
         model = load_model()
-    except:
-        st.error("⚠️ File 'model_sampah.h5' tidak ditemukan di folder ini!")
+    except Exception as e:
+        st.error("⚠️ File 'modelo_desechos.h5' tidak ditemukan / gagal dibuka!")
+        st.caption(f"Detail: {e}")
         st.stop()
 
 # Daftar Kelas (Harus urut Abjad A-Z sesuai training dataset)
@@ -115,7 +154,7 @@ if img_file:
 
     # --- ANORGANIK (B3 - BERBAHAYA) ---
     elif label == 'Battery':
-        st.markdown(f"""
+        st.markdown("""
         <div class="result_box" style="background-color: #f8d7da; color: #721c24; border: 2px solid #f5c6cb;">
             <h1>⚠️ BERBAHAYA (B3)</h1>
             <p>Ini adalah <b>Baterai Bekas</b>.</p>
@@ -141,8 +180,10 @@ if img_file:
     else:
         # Plastic, Metal, Glass, Shoes, Clothes, Trash
         display_name = label
-        if label == 'Glass': display_name = "Kaca/Beling (Hati-hati!)"
-        if label == 'Metal': display_name = "Logam/Kaleng"
+        if label == 'Glass':
+            display_name = "Kaca/Beling (Hati-hati!)"
+        if label == 'Metal':
+            display_name = "Logam/Kaleng"
         
         st.markdown(f"""
         <div class="result_box" style="background-color: #fff3cd; color: #856404; border: 2px solid #ffeeba;">
